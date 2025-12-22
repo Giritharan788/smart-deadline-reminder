@@ -49,18 +49,27 @@ export default function EditDeadlineForm({ deadline, onSave, onCancel }) {
           placeholder="Description"
         />
 
-        <input
-          type="date"
-          className="w-full border p-2 rounded"
-          value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)}
-        />
+        <div className="w-full">
+          <input
+            type="date"
+            className="w-full border p-2 rounded text-gray-700"
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
+          />
+
+          {!dueDate && (
+            <p className="text-xs text-gray-400 mt-1">Select due date</p>
+          )}
+        </div>
 
         <select
           className="w-full border p-2 rounded"
           value={priority}
           onChange={(e) => setPriority(e.target.value)}
         >
+          <option value="" disabled>
+            Select priority
+          </option>
           <option>Low</option>
           <option>Medium</option>
           <option>High</option>

@@ -206,17 +206,28 @@ export default function Dashboard({ onLogout }) {
       </div>
 
       {/* Deadline Cards */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {sortDeadlines(deadlines).map((item) => (
-          <DeadlineCard
-            key={item.id}
-            {...item}
-            onDelete={() => handleDelete(item.id)}
-            onMarkDone={() => handleMarkDone(item.id)}
-            onEdit={() => handleEdit(item)}
-          />
-        ))}
-      </div>
+      {deadlines.length === 0 ? (
+        <div className="flex flex-col items-center justify-center mt-20 text-center text-gray-500">
+          <h2 className="text-xl font-semibold mb-2">No deadlines yet 📭</h2>
+          <p className="mb-4">Add your deadlines and stay productive 🚀</p>
+          <p className="text-sm">
+            Click <span className="font-medium">+ Add Deadline</span> to get
+            started
+          </p>
+        </div>
+      ) : (
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {sortDeadlines(deadlines).map((item) => (
+            <DeadlineCard
+              key={item.id}
+              {...item}
+              onDelete={() => handleDelete(item.id)}
+              onMarkDone={() => handleMarkDone(item.id)}
+              onEdit={() => handleEdit(item)}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Add / Edit Form */}
       {(editingDeadline || isAdding) && (
@@ -226,7 +237,7 @@ export default function Dashboard({ onLogout }) {
               title: "",
               description: "",
               dueDate: "",
-              priority: "Medium",
+              priority: "",
             }
           }
           onSave={isAdding ? handleCreateDeadline : handleSaveEdit}
