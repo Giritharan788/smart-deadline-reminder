@@ -26,10 +26,16 @@ export default function EditDeadlineForm({ deadline, onSave, onCancel }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
+    <div
+      className="fixed inset-0 bg-black/40 flex items-center justify-center
+    transition-opacity duration-300 ease-out"
+    >
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-xl w-80 space-y-4"
+        className="bg-white p-6 rounded-xl w-80 space-y-4 transform transition-all duration-300 ease-out
+  scale-95 opacity-0
+  animate-[modalIn_0.3s_ease-out_forwards]
+"
       >
         <h2 className="text-lg font-semibold">
           {deadline.id ? "Edit Deadline" : "Add Deadline"}
@@ -80,7 +86,8 @@ export default function EditDeadlineForm({ deadline, onSave, onCancel }) {
             Cancel
           </button>
 
-          <button type="submit" className="text-blue-600 font-medium">
+          <button type="submit" className="text-blue-600 font-medium  transition-transform duration-200
+    hover:scale-105 active:scale-95">
             Save
           </button>
         </div>

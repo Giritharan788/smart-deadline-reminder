@@ -182,9 +182,13 @@ export default function Dashboard({ onLogout }) {
               }}
               className="
           bg-blue-600 text-white
-          text-xs px-3 py-1.5
-          sm:text-sm sm:px-4 sm:py-2
-          rounded-lg hover:bg-blue-700
+  text-xs px-3 py-1.5
+  sm:text-sm sm:px-4 sm:py-2
+  rounded-lg
+  transition-all duration-200 ease-in-out
+  hover:bg-blue-700 hover:scale-105
+  active:scale-95
+          
         "
             >
               + Add Deadline
@@ -193,10 +197,13 @@ export default function Dashboard({ onLogout }) {
             <button
               onClick={onLogout}
               className="
-          bg-red-500 text-white
-          text-xs px-3 py-1.5
-          sm:text-sm sm:px-4 sm:py-2
-          rounded-lg hover:bg-red-600
+         bg-red-500 text-white
+  text-xs px-3 py-1.5
+  sm:text-sm sm:px-4 sm:py-2
+  rounded-lg
+  transition-all duration-200 ease-in-out
+  hover:bg-red-600 hover:scale-105
+  active:scale-95
         "
             >
               Logout

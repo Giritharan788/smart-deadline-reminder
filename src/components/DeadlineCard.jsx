@@ -31,7 +31,7 @@ function getDeadlineStatus(dueDate) {
   const diffInTime = deadlineDate - today;
   const diffInDays = diffInTime / (1000 * 60 * 60 * 24);
 
-  if (diffInDays < 0) {
+  if (diffInDays <= 0) {
     return { label: "Overdue", color: "text-red-600 bg-red-100" };
   }
 
@@ -54,7 +54,7 @@ function getReminderStatus(dueDate, completed) {
 
   const diffInDays = (deadlineDate - today) / (1000 * 60 * 60 * 24);
 
-  if (diffInDays < 0) return "overdue";
+  if (diffInDays <= 0) return "overdue";
   if (diffInDays <= 2) return "dueSoon";
   return "upcoming";
 }
@@ -79,6 +79,8 @@ export default function DeadlineCard({
         reminderStatus
       )} flex flex-col justify-between
     ${completed ? "opacity-60" : ""}
+    transition-all duration-300 ease-in-out
+    hover:scale-[1.02]
   `}
     >
       {/* Top Section */}
@@ -128,10 +130,11 @@ export default function DeadlineCard({
         <button
           onClick={onEdit}
           disabled={completed}
-          className={`${
+          className={`transition-transform duration-200
+          ${
             completed
               ? "text-gray-400 cursor-not-allowed"
-              : "text-blue-600 hover:text-blue-800"
+              : "text-blue-600 hover:text-blue-800 hover:scale-110"
           }`}
         >
           <FiEdit size={18} />
@@ -140,7 +143,7 @@ export default function DeadlineCard({
         {!completed && (
           <button
             onClick={onMarkDone}
-            className="text-green-600 hover:text-green-800"
+            className="text-green-600 hover:text-green-800 transition-transform duration-200 hover:scale-110"
           >
             <FiCheck size={18} />
           </button>
@@ -148,7 +151,7 @@ export default function DeadlineCard({
 
         <button
           onClick={onDelete}
-          className="text-red-600 hover:text-red-800"
+          className="text-red-600 hover:text-red-800 transition-transform duration-200 hover:scale-110"
           title="Delete"
         >
           <FiTrash2 size={18} />
