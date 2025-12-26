@@ -357,4 +357,3 @@ This Deadline Reminder application is a concise full-stack project suitable for 
 
 ---
 
-If you would like, I can also add a `CONTRIBUTING.md`, a `LICENSE` file, example screenshots, or an automated GitHub Actions workflow for build and deployment.
