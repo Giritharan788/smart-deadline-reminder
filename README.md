@@ -1,3 +1,14 @@
+
+
+#Live Link
+
+https://deadline-reminder-f15b5.web.app/
+
+
+---
+
+
+
 # Deadline Reminder
 
 A Full Stack web application (college mini project) to help students track academic deadlines (assignments, tests, exams). The application provides user authentication, user-specific deadlines, sorting and prioritisation, visual status indicators, and a responsive UI. It is built with React (Vite), styled with Tailwind CSS, uses Firebase for authentication and Firestore for data persistence, and is deployed using Firebase Hosting.
